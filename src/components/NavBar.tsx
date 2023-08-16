@@ -5,7 +5,7 @@ import CalculateIcon from '@mui/icons-material/Calculate';
 
 const NavBar = () => {
     return (
-        <AppBar>
+        <AppBar position={'static'}>
             <Toolbar>
                 <CalculateIcon/>
                 <Typography
