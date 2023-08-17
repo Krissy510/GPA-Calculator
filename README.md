@@ -24,12 +24,6 @@ git clone https://github.com/your-username/gpa-calculator.git
 ```
 2. Install the dependencies:
 ```bash
-yarn install
-```
-
-Or if you're using npm
-
-```bash
 npm install
 ```
 
