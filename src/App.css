@@ -1,4 +1,9 @@
-body{
-  padding: 0;
-  margin: 0;
+body {
+    margin: 0;
+}
+
+.controls-panel {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
 }
