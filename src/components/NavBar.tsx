@@ -11,19 +11,21 @@ const NavBar = () => {
                 <Typography
                     variant={"h6"}
                     component={"div"}
-                    sx={{paddingLeft: 1,
-                    flexGrow: 1}}
+                    sx={{
+                        paddingLeft: 1,
+                        flexGrow: 1
+                    }}
                 >
                     GPA Calculator
                 </Typography>
                 <IconButton
                     aria-label={'github'}
                     component="a"
-                    href="https://www.google.com"
+                    href="https://github.com/Krissy510/GPA-Calculator"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <GitHubIcon sx={{color: "white", fontSize: 32}} />
+                    <GitHubIcon sx={{color: "white", fontSize: 32}}/>
                 </IconButton>
             </Toolbar>
         </AppBar>
