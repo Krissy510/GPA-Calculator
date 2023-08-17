@@ -2,7 +2,7 @@ import './App.css'
 import NavBar from "./components/NavBar.tsx";
 import Subject from "./components/Subject/Subject.tsx";
 import {Button, Grid, Typography} from "@mui/material";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {ISubject} from "./Interfaces.ts";
 import Grade from "./components/Grade/Grade.tsx";
 
@@ -11,7 +11,7 @@ function App() {
     const [subjects, setSubjects] = useState(Array<ISubject>);
     const [grades, setGrades] = useState(new Map<string, number>);
     const [gpa, setGpa] = useState(0);
-
+    const [canCalculate, setCanCalculate] = useState(false);
     const handleCalculate= () => {
         let totalGpa = 0;
         let totalSubject = 0;
@@ -24,6 +24,10 @@ function App() {
         });
         setGpa( totalGpa/Math.max(1,totalSubject));
     }
+
+    useEffect(() => {
+        setCanCalculate(grades.size > 0 && subjects.length > 0);
+    },[grades, subjects]);
 
     return (
         <>
@@ -67,6 +71,7 @@ function App() {
 
                         <Button
                             variant="contained"
+                            disabled={!canCalculate}
                             sx={{
                                 width: "9vw",
                             }}
