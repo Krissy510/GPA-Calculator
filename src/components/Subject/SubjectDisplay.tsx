@@ -1,34 +1,39 @@
+import {DataGrid, GridColDef} from "@mui/x-data-grid";
 import {ISubjectDisplayProps} from "../../Interfaces.ts";
-import {DataGrid, GridColDef} from '@mui/x-data-grid';
 
-
-const cols: GridColDef[] = [
+const columns: GridColDef[] = [
     {
         field: 'name',
         headerName: 'Name',
-        editable: true,
-    },{
+        width: 250,
+    },
+    {
         field: 'credit',
         headerName: 'Credit',
-        editable: true,
-        type: "number"
-    },{
-        field: 'grade',
-        headerName: 'Grade',
-        editable: true,
+        width: 120,
+        type: 'number',
+        headerAlign: 'center',
+        align: 'center',
     },
-
+    {
+        field: 'grade',
+        width: 120,
+        headerName: 'Grade',
+        headerAlign: 'center',
+        align: 'center',
+    },
 ]
 
 const SubjectDisplay = ({subjects, setSelectedSubjects}: ISubjectDisplayProps) => {
     return (
         <DataGrid
+            getRowId={(row) => row.name}
             rows={subjects}
-            columns={cols}
-            autoHeight={true}
+            columns={columns}
             checkboxSelection
+            pageSizeOptions={[]}
             onRowSelectionModelChange={(names) => {
-                setSelectedSubjects(names.map(name => name.toString()));
+                setSelectedSubjects(names.map((name) => name.toString()));
             }}
         />
     );

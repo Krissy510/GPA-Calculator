@@ -1,42 +1,56 @@
-import {ISubjectInputProps} from "../../Interfaces.ts";
 import {Grid, TextField} from "@mui/material";
+import {ISubjectInputProps} from "../../Interfaces.ts";
 
-const SubjectInput = ({setSubjectName, credit, setGrade, setCredit}:ISubjectInputProps) => {
 
+const SubjectInput = ({setName, credit, setCredit, setGrade}: ISubjectInputProps) => {
     return (
         <Grid
             container
-            gap={2}
+            direction="row"
+            alignItems="center"
+            sx={{
+                gap: 1,
+            }}
         >
             <TextField
-                label={"Name"}
-                multiline
-                sx={{
-                    width:230,
-                }}
-                onChange={(e) => setSubjectName(e.target.value)}
-            ></TextField>
-            <TextField
-                label={"Credit"}
-                value={credit}
-                sx={{
-                    width:70,
-                }}
-                type={"number"}
-                onClick={(e) => {
-                    (e.target as HTMLInputElement).select();
-                }}
+                label="Name"
+                variant="outlined"
+                sx={{width: 270}}
                 onChange={(e) => {
-                    setCredit(Math.max(0,Number(e.target.value)))
+                    setName(e.target.value);
                 }}
-            ></TextField>
+            />
             <TextField
-                label={"Grade"}
-                sx={{
-                    width:75,
+                label="Credit"
+                variant="outlined"
+                value={credit}
+                type={"number"}
+                sx={{width: 70}}
+                inputProps={{min: "0"}}
+                onChange={(e) => {
+                    setCredit(Math.max(0, Number(e.target.value)));
+                }
+                }
+                onClick={
+                    (e) => {
+                        (e.target as HTMLInputElement).select();
+                    }
+                }
+            />
+            <TextField
+                label="Grade"
+                variant="outlined"
+                sx={{width: 80}}
+                onChange={(e) => {
+                    setGrade(e.target.value);
                 }}
-                onChange={(e) => setGrade(e.target.value)}
-            ></TextField>
+                onClick={
+                    (e) => {
+                        (e.target as HTMLInputElement).select();
+                    }
+                }
+            />
+
         </Grid>
     );
 }
