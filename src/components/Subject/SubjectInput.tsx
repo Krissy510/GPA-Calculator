@@ -1,8 +1,9 @@
 import {Grid, TextField} from "@mui/material";
 import {ISubjectInputProps} from "../../Interfaces.ts";
+import Autocomplete from "@mui/material/Autocomplete";
 
 
-const SubjectInput = ({setName, credit, setCredit, setGrade}: ISubjectInputProps) => {
+const SubjectInput = ({setName, credit, setCredit, grades, setGrade}: ISubjectInputProps) => {
     return (
         <Grid
             container
@@ -37,18 +38,20 @@ const SubjectInput = ({setName, credit, setCredit, setGrade}: ISubjectInputProps
                     }
                 }
             />
-            <TextField
-                label="Grade"
-                variant="outlined"
-                sx={{width: 80}}
+            <Autocomplete
+                disablePortal
+                id="grade-input"
+                options={grades}
+                sx={{width: 90}}
                 onChange={(e) => {
-                    setGrade(e.target.value);
+                    setGrade((e.target as HTMLInputElement).value);
                 }}
                 onClick={
                     (e) => {
                         (e.target as HTMLInputElement).select();
                     }
                 }
+                renderInput={(params) => <TextField {...params} label="Grade" />}
             />
 
         </Grid>

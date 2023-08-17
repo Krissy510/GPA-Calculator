@@ -42,7 +42,11 @@ function App() {
                 }}
             >
                 <Grid item xs={5}>
-                    <Subject subjects={subjects} setSubjects={setSubjects}/>
+                    <Subject
+                        subjects={subjects}
+                        setSubjects={setSubjects}
+                        grades={Array.from(grades.keys())}
+                    />
                 </Grid>
                 <Grid item xs={3}>
                     <Grade grades={grades} setGrades={setGrades}/>

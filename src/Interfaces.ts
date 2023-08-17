@@ -7,6 +7,7 @@ export interface ISubject {
 export interface ISubjectProps {
     subjects: Array<ISubject>;
     setSubjects: (subjects: Array<ISubject>) => void;
+    grades: Array<string>;
 }
 
 export interface ISubjectDisplayProps {
@@ -18,6 +19,7 @@ export interface ISubjectInputProps {
     setName: (name: string) => void;
     credit: number;
     setCredit: (credit: number) => void;
+    grades: Array<string>;
     setGrade: (grade: string) => void;
 }
 

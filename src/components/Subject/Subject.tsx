@@ -7,7 +7,7 @@ import AddButton from "../General/AddButton.tsx";
 import DeleteButton from "../General/DeleteButton.tsx";
 
 
-const Subject = ({subjects, setSubjects}: ISubjectProps) => {
+const Subject = ({subjects, setSubjects, grades}: ISubjectProps) => {
 
     const [selectedSubjects, setSelectedSubjects] = useState(Array<string>);
     const [name, setName] = useState("");
@@ -68,6 +68,7 @@ const Subject = ({subjects, setSubjects}: ISubjectProps) => {
                     setName={setName}
                     credit={credit}
                     setCredit={setCredit}
+                    grades={grades}
                     setGrade={setGrade}
                 />
                 <AddButton onClick={handleAdd} disabled={!canAdd}/>
