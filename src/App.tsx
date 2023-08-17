@@ -22,7 +22,7 @@ function App() {
                 totalSubject++;
             }
         });
-        setGpa(totalGpa/totalSubject);
+        setGpa( totalGpa/Math.max(1,totalSubject));
     }
 
     return (
@@ -37,13 +37,13 @@ function App() {
                     padding: "20px 40px",
                 }}
             >
-                <Grid item xs={4}>
+                <Grid item xs={5}>
                     <Subject subjects={subjects} setSubjects={setSubjects}/>
                 </Grid>
                 <Grid item xs={3}>
                     <Grade grades={grades} setGrades={setGrades}/>
                 </Grid>
-                <Grid item xs={2}>
+                <Grid item xs={3}>
                     <Grid
                         container
                         direction="column"
