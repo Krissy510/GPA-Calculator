@@ -8,26 +8,37 @@ import Grade from "./components/Grade/Grade.tsx";
 
 function App() {
 
-    const [subjects, setSubjects] = useState(Array<ISubject>);
-    const [grades, setGrades] = useState(new Map<string, number>);
+    const initialSubjects: Array<ISubject> = localStorage.getItem('subjects')
+        ? JSON.parse(localStorage.getItem('subjects') as string)
+        : [];
+    const initialGrades = localStorage.getItem('grades')
+        ? new Map<string, number>(JSON.parse(localStorage.getItem('grades') as string))
+        : new Map<string, number>();
+
+    const [subjects, setSubjects] = useState(initialSubjects);
+    const [grades, setGrades] = useState(initialGrades);
     const [gpa, setGpa] = useState(0);
     const [canCalculate, setCanCalculate] = useState(false);
     const handleCalculate= () => {
         let totalGpa = 0;
-        let totalSubject = 0;
         subjects.forEach((subject) => {
-            const gradeValue = grades.get(subject.grade);
-            if (gradeValue !== undefined) {
-                totalGpa += subject.credit * gradeValue;
-                totalSubject++;
-            }
+            const gradeValue = grades.get(subject.grade)?? 0;
+            totalGpa += subject.credit * Number(gradeValue);
         });
-        setGpa( totalGpa/Math.max(1,totalSubject));
+        setGpa(totalGpa/subjects.length);
     }
 
     useEffect(() => {
         setCanCalculate(grades.size > 0 && subjects.length > 0);
     },[grades, subjects]);
+
+    useEffect(() => {
+        localStorage.setItem('subjects', JSON.stringify(subjects));
+    }, [subjects]);
+
+    useEffect(() => {
+        localStorage.setItem('grades', JSON.stringify(Array.from(grades.entries())));
+    }, [grades]);
 
     return (
         <>

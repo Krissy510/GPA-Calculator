@@ -43,8 +43,8 @@ const SubjectInput = ({setName, credit, setCredit, grades, setGrade}: ISubjectIn
                 id="grade-input"
                 options={grades}
                 sx={{width: 90}}
-                onChange={(e) => {
-                    setGrade((e.target as HTMLInputElement).value);
+                onChange={(_, value) => {
+                    setGrade(value?? "");
                 }}
                 onClick={
                     (e) => {
