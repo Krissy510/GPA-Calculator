@@ -15,7 +15,7 @@ const SubjectInput = ({setName, credit, setCredit, setGrade}: ISubjectInputProps
             <TextField
                 label="Name"
                 variant="outlined"
-                sx={{width: 270}}
+                sx={{width: 250}}
                 onChange={(e) => {
                     setName(e.target.value);
                 }}
