@@ -52,7 +52,7 @@ const Grade = ({grades, setGrades}: IGradeProps) => {
                 setSelectedGrades={setSelectedGrades}
             />
 
-            <div className={'controls-panel'}>
+            <div className='controls-panel'>
                 <GradeInput setSymbol={setSymbol} value={value} setValue={setValue}/>
                 <AddButton onClick={handleAdd} disabled={!canAdd}/>
                 <DeleteButton onClick={handleDelete} disabled={!canDelete}/>

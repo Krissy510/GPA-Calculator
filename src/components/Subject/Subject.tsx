@@ -63,7 +63,7 @@ const Subject = ({subjects, setSubjects, grades}: ISubjectProps) => {
                 setSelectedSubjects={setSelectedSubjects}
             />
 
-            <div className={'controls-panel'}>
+            <div className='controls-panel'>
                 <SubjectInput
                     setName={setName}
                     credit={credit}
