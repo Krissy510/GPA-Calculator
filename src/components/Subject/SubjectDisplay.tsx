@@ -1,5 +1,5 @@
 import {DataGrid, GridColDef} from "@mui/x-data-grid";
-import {ISubjectDisplayProps} from "../../Interfaces.ts";
+import {SubjectDisplayProps} from "../../Interfaces.ts";
 
 const columns: GridColDef[] = [
     {
@@ -24,7 +24,7 @@ const columns: GridColDef[] = [
     },
 ]
 
-const SubjectDisplay = ({subjects, setSelectedSubjects}: ISubjectDisplayProps) => {
+const SubjectDisplay = ({subjects, setSelectedSubjects}: SubjectDisplayProps) => {
     return (
         <DataGrid
             getRowId={(row) => row.name}

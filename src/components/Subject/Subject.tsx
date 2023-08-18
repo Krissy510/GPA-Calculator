@@ -1,4 +1,4 @@
-import {ISubjectProps} from "../../Interfaces.ts";
+import {SubjectProps} from "../../Interfaces.ts";
 import {Grid, Typography} from "@mui/material";
 import SubjectDisplay from "./SubjectDisplay.tsx";
 import {useEffect, useState} from "react";
@@ -7,7 +7,7 @@ import AddButton from "../General/AddButton.tsx";
 import DeleteButton from "../General/DeleteButton.tsx";
 
 
-const Subject = ({subjects, setSubjects, grades}: ISubjectProps) => {
+const Subject = ({subjects, setSubjects, grades}: SubjectProps) => {
 
     const [selectedSubjects, setSelectedSubjects] = useState<Array<string>>(Array<string>);
     const [name, setName] = useState<string>("");

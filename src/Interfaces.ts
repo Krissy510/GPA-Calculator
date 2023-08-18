@@ -4,18 +4,18 @@ export interface ISubject {
     grade: string;
 }
 
-export interface ISubjectProps {
+export interface SubjectProps {
     subjects: Array<ISubject>;
     setSubjects: (subjects: Array<ISubject>) => void;
     grades: Array<string>;
 }
 
-export interface ISubjectDisplayProps {
+export interface SubjectDisplayProps {
     subjects: Array<ISubject>;
     setSelectedSubjects: (selectedSubjects: Array<string>) => void;
 }
 
-export interface ISubjectInputProps {
+export interface SubjectInputProps {
     setName: (name: string) => void;
     credit: number;
     setCredit: (credit: number) => void;
@@ -23,22 +23,22 @@ export interface ISubjectInputProps {
     setGrade: (grade: string) => void;
 }
 
-export interface IButtonProps {
+export interface ButtonProps {
     disabled?: boolean;
     onClick: () => void;
 }
 
-export interface IGradeProps {
+export interface GradeProps {
     grades: Map<string, number>;
     setGrades: (grades: Map<string, number>) => void;
 }
 
-export interface IGradeDisplayProps {
+export interface GradeDisplayProps {
     grades: Map<string, number>;
     setSelectedGrades: (selectedGrades: Array<string>) => void;
 }
 
-export interface IGradeInputProps {
+export interface GradeInputProps {
     setSymbol: (symbol: string) => void;
     value: number;
     setValue: (value: number) => void;

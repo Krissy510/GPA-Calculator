@@ -1,8 +1,8 @@
 import AddIcon from "@mui/icons-material/Add";
 import {IconButton} from "@mui/material";
-import {IButtonProps} from "../../Interfaces.ts";
+import {ButtonProps} from "../../Interfaces.ts";
 
-const AddButton = ({disabled, onClick}: IButtonProps) => {
+const AddButton = ({disabled, onClick}: ButtonProps) => {
     return (
         <IconButton
             aria-label={'add'}

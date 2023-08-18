@@ -1,7 +1,7 @@
-import {IGradeInputProps} from "../../Interfaces.ts";
+import {GradeInputProps} from "../../Interfaces.ts";
 import {Grid, TextField} from "@mui/material";
 
-const GradeInput = ({setSymbol, value, setValue}: IGradeInputProps) => {
+const GradeInput = ({setSymbol, value, setValue}: GradeInputProps) => {
     return (
         <Grid
             container

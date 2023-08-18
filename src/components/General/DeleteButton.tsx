@@ -1,8 +1,8 @@
 import {IconButton} from "@mui/material";
-import {IButtonProps} from "../../Interfaces.ts";
+import {ButtonProps} from "../../Interfaces.ts";
 import DeleteIcon from '@mui/icons-material/Delete';
 
-const DeleteButton = ({disabled, onClick}: IButtonProps) => {
+const DeleteButton = ({disabled, onClick}: ButtonProps) => {
     return (
         <IconButton
             aria-label={'delete'}

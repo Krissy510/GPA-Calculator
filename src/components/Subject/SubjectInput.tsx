@@ -1,9 +1,9 @@
 import {Grid, TextField} from "@mui/material";
-import {ISubjectInputProps} from "../../Interfaces.ts";
+import {SubjectInputProps} from "../../Interfaces.ts";
 import Autocomplete from "@mui/material/Autocomplete";
 
 
-const SubjectInput = ({setName, credit, setCredit, grades, setGrade}: ISubjectInputProps) => {
+const SubjectInput = ({setName, credit, setCredit, grades, setGrade}: SubjectInputProps) => {
     return (
         <Grid
             container

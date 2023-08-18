@@ -1,4 +1,4 @@
-import {IGradeDisplayProps} from "../../Interfaces.ts";
+import {GradeDisplayProps} from "../../Interfaces.ts";
 import {DataGrid, GridColDef} from "@mui/x-data-grid";
 
 const columns: GridColDef[] = [
@@ -19,7 +19,7 @@ const columns: GridColDef[] = [
     },
 ]
 
-const GradeDisplay = ({grades, setSelectedGrades}: IGradeDisplayProps) => {
+const GradeDisplay = ({grades, setSelectedGrades}: GradeDisplayProps) => {
     return (
         <DataGrid
             getRowId={(row) => row.symbol}

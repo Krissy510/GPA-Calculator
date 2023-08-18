@@ -1,4 +1,4 @@
-import {IGradeProps} from "../../Interfaces.ts";
+import {GradeProps} from "../../Interfaces.ts";
 import {Grid, Typography} from "@mui/material";
 import {useEffect, useState} from "react";
 import GradeInput from "./GradeInput.tsx";
@@ -7,7 +7,7 @@ import AddButton from "../General/AddButton.tsx";
 import DeleteButton from "../General/DeleteButton.tsx";
 
 
-const Grade = ({grades, setGrades}: IGradeProps) => {
+const Grade = ({grades, setGrades}: GradeProps) => {
 
     const [selectedGrades, setSelectedGrades] = useState<Array<string>>([]);
     const [symbol, setSymbol] = useState<string>("");
