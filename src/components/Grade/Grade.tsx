@@ -10,10 +10,10 @@ import DeleteButton from "../General/DeleteButton.tsx";
 const Grade = ({grades, setGrades}: IGradeProps) => {
 
     const [selectedGrades, setSelectedGrades] = useState<Array<string>>([]);
-    const [symbol, setSymbol] = useState("");
-    const [value, setValue] = useState(0);
-    const [canAdd, setCanAdd] = useState(false);
-    const [canDelete, setCanDelete] = useState(false);
+    const [symbol, setSymbol] = useState<string>("");
+    const [value, setValue] = useState<number>(0);
+    const [canAdd, setCanAdd] = useState<boolean>(false);
+    const [canDelete, setCanDelete] = useState<boolean>(false);
 
 
     const handleAdd = () => {

@@ -11,14 +11,14 @@ function App() {
     const initialSubjects: Array<ISubject> = localStorage.getItem('subjects')
         ? JSON.parse(localStorage.getItem('subjects') as string)
         : [];
-    const initialGrades = localStorage.getItem('grades')
+    const initialGrades: Map<string, number> = localStorage.getItem('grades')
         ? new Map<string, number>(JSON.parse(localStorage.getItem('grades') as string))
         : new Map<string, number>();
 
-    const [subjects, setSubjects] = useState(initialSubjects);
-    const [grades, setGrades] = useState(initialGrades);
-    const [gpa, setGpa] = useState(0);
-    const [canCalculate, setCanCalculate] = useState(false);
+    const [subjects, setSubjects] = useState<Array<ISubject>>(initialSubjects);
+    const [grades, setGrades] = useState<Map<string,number>>(initialGrades);
+    const [gpa, setGpa] = useState<number>(0);
+    const [canCalculate, setCanCalculate] = useState<boolean>(false);
     const handleCalculate= () => {
         let totalGpa = 0;
         subjects.forEach((subject) => {

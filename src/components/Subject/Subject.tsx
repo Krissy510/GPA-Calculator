@@ -9,12 +9,12 @@ import DeleteButton from "../General/DeleteButton.tsx";
 
 const Subject = ({subjects, setSubjects, grades}: ISubjectProps) => {
 
-    const [selectedSubjects, setSelectedSubjects] = useState(Array<string>);
-    const [name, setName] = useState("");
-    const [credit, setCredit] = useState(0);
-    const [grade, setGrade] = useState("");
-    const [canAdd, setCanAdd] = useState(false);
-    const [canDelete, setCanDelete] = useState(false);
+    const [selectedSubjects, setSelectedSubjects] = useState<Array<string>>(Array<string>);
+    const [name, setName] = useState<string>("");
+    const [credit, setCredit] = useState<number>(0);
+    const [grade, setGrade] = useState<string>("");
+    const [canAdd, setCanAdd] = useState<boolean>(false);
+    const [canDelete, setCanDelete] = useState<boolean>(false);
 
 
     const checkAdd = (): boolean => {
