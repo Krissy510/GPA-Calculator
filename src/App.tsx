@@ -21,11 +21,14 @@ function App() {
 
     const handleCalculate=  useCallback(() => {
         let totalGpa = 0;
+        let totalCredit =  0;
         subjects.forEach((subject) => {
             const gradeValue = grades.get(subject.grade)?? 0;
             totalGpa += subject.credit * Number(gradeValue);
+            totalCredit += subject.credit;
+
         });
-        setGpa(totalGpa/subjects.length);
+        setGpa(totalGpa/Math.max(1,totalCredit));
     },[subjects,grades]);
 
     useEffect(() => {
