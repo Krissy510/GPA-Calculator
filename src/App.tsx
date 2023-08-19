@@ -2,7 +2,7 @@ import './App.css'
 import NavBar from "./components/NavBar.tsx";
 import Subject from "./components/Subject/Subject.tsx";
 import {Button, Grid, Typography} from "@mui/material";
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import {ISubject} from "./Interfaces.ts";
 import Grade from "./components/Grade/Grade.tsx";
 
@@ -18,19 +18,15 @@ function App() {
     const [subjects, setSubjects] = useState<Array<ISubject>>(initialSubjects);
     const [grades, setGrades] = useState<Map<string,number>>(initialGrades);
     const [gpa, setGpa] = useState<number>(0);
-    const [canCalculate, setCanCalculate] = useState<boolean>(false);
-    const handleCalculate= () => {
+
+    const handleCalculate=  useCallback(() => {
         let totalGpa = 0;
         subjects.forEach((subject) => {
             const gradeValue = grades.get(subject.grade)?? 0;
             totalGpa += subject.credit * Number(gradeValue);
         });
         setGpa(totalGpa/subjects.length);
-    }
-
-    useEffect(() => {
-        setCanCalculate(grades.size > 0 && subjects.length > 0);
-    },[grades, subjects]);
+    },[subjects,grades]);
 
     useEffect(() => {
         localStorage.setItem('subjects', JSON.stringify(subjects));
@@ -86,7 +82,7 @@ function App() {
 
                         <Button
                             variant="contained"
-                            disabled={!canCalculate}
+                            disabled={!(grades.size > 0 && subjects.length > 0)}
                             sx={{
                                 width: "9vw",
                             }}

@@ -1,10 +1,10 @@
 import {GradeProps} from "../../Interfaces.ts";
 import {Grid, Typography} from "@mui/material";
-import {useEffect, useState} from "react";
+import {useCallback, useState} from "react";
 import GradeInput from "./GradeInput.tsx";
 import GradeDisplay from "./GradeDisplay.tsx";
-import AddButton from "../General/AddButton.tsx";
-import DeleteButton from "../General/DeleteButton.tsx";
+import AddButton from "../Buttons/AddButton.tsx";
+import DeleteButton from "../Buttons/DeleteButton.tsx";
 
 
 const Grade = ({grades, setGrades}: GradeProps) => {
@@ -12,27 +12,15 @@ const Grade = ({grades, setGrades}: GradeProps) => {
     const [selectedGrades, setSelectedGrades] = useState<Array<string>>([]);
     const [symbol, setSymbol] = useState<string>("");
     const [value, setValue] = useState<number>(0);
-    const [canAdd, setCanAdd] = useState<boolean>(false);
-    const [canDelete, setCanDelete] = useState<boolean>(false);
 
-
-    const handleAdd = () => {
+    const handleAdd = useCallback(() => {
         setGrades(new Map(grades.set(symbol, value)));
-        setCanAdd(!grades.has(symbol));
-    }
+    },[grades, setGrades, symbol, value]);
 
-    const handleDelete = () => {
+    const handleDelete = useCallback(() => {
         const newGrades = new Map([...grades].filter(([key]) => !selectedGrades.includes(key)));
         setGrades(newGrades);
-    }
-
-    useEffect(() => {
-        setCanAdd(symbol !== "" && !grades.has(symbol));
-    }, [grades, symbol]);
-
-    useEffect(() => {
-        setCanDelete(selectedGrades.length > 0);
-    }, [selectedGrades]);
+    },[grades, selectedGrades, setGrades]);
 
     return (
         <Grid
@@ -54,8 +42,8 @@ const Grade = ({grades, setGrades}: GradeProps) => {
 
             <div className='controls-panel'>
                 <GradeInput setSymbol={setSymbol} value={value} setValue={setValue}/>
-                <AddButton onClick={handleAdd} disabled={!canAdd}/>
-                <DeleteButton onClick={handleDelete} disabled={!canDelete}/>
+                <AddButton onClick={handleAdd} disabled={symbol !== '' && grades.has(symbol)}/>
+                <DeleteButton onClick={handleDelete} disabled={!(selectedGrades.length > 0)}/>
             </div>
         </Grid>
     );
