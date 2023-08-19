@@ -50,8 +50,7 @@ const Subject = ({subjects, setSubjects, grades}: SubjectProps) => {
                     setGrade={setGrade}
                 />
                 <AddButton onClick={handleAdd} disabled={
-                    name === '' &&
-                    grade === '' &&
+                    (name === '' && grade === '') ||
                     subjects.some(subject => subject.name === name)
                 }/>
                 <DeleteButton onClick={handleDelete} disabled={!(selectedSubjects.length > 0)}/>

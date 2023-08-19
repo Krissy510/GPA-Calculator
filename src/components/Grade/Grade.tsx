@@ -42,7 +42,7 @@ const Grade = ({grades, setGrades}: GradeProps) => {
 
             <div className='controls-panel'>
                 <GradeInput setSymbol={setSymbol} value={value} setValue={setValue}/>
-                <AddButton onClick={handleAdd} disabled={symbol !== '' && grades.has(symbol)}/>
+                <AddButton onClick={handleAdd} disabled={symbol === '' || grades.has(symbol)}/>
                 <DeleteButton onClick={handleDelete} disabled={!(selectedGrades.length > 0)}/>
             </div>
         </Grid>
