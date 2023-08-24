@@ -5,17 +5,19 @@ const columns: GridColDef[] = [
     {
         field: 'symbol',
         headerName: 'Symbol',
-        headerAlign: 'center',
-        align: 'center',
-        width: 150,
+        headerAlign: 'left',
+        align: 'left',
+        flex: 1,
+        minWidth: 50,
     },
     {
         field: 'value',
         headerName: 'Value',
         type: 'number',
-        headerAlign: 'center',
-        align: 'center',
-        width: 150,
+        headerAlign: 'left',
+        align: 'left',
+        flex: 1,
+        minWidth: 50,
     },
 ]
 

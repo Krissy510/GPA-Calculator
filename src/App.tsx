@@ -45,37 +45,46 @@ function App() {
             <Grid
                 container
                 direction="row"
-                justifyContent="center"
-                gap={5}
                 sx={{
-                    padding: "20px 40px",
+                    gap: {
+                        lg: 5,
+                        md: 3,
+                    },
+                    paddingY: "20px",
+                    paddingX: {
+                        md: "30px",
+                        lg: "40px",
+                    },
                 }}
             >
-                <Grid item xs={5}>
+                <Grid item lg={5} md={6}>
                     <Subject
                         subjects={subjects}
                         setSubjects={setSubjects}
                         grades={Array.from(grades.keys())}
                     />
                 </Grid>
-                <Grid item xs={3}>
+                <Grid item lg={3} md={4}>
                     <Grade grades={grades} setGrades={setGrades}/>
                 </Grid>
-                <Grid item xs={3}>
+                <Grid item lg={2} md={1}>
                     <Grid
                         container
                         direction="column"
                         justifyContent="flex-end"
                         gap={2}
                         sx={{
-                            marginTop: "13%",
+                            marginTop: {
+                                lg: "2.5rem",
+                                md: "5.5vh",
+                            },
                         }}
                     >
                         <Typography
                             sx={{
                                 border: "1px solid rgba(224, 224, 224, 1);",
                                 borderRadius: "10px",
-                                width: "8vw",
+                                width: "9vw",
                                 padding: "10px",
                             }}
                             variant="subtitle1"
@@ -87,7 +96,10 @@ function App() {
                             variant="contained"
                             disabled={!(grades.size > 0 && subjects.length > 0)}
                             sx={{
-                                width: "9vw",
+                                width: {
+                                    lg: "10.5vw",
+                                    md: "11vw"
+                                },
                             }}
                             onClick={handleCalculate}
                         >

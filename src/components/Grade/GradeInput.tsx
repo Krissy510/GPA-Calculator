@@ -29,7 +29,12 @@ const GradeInput = ({setSymbol, value, setValue}: GradeInputProps) => {
                 variant="outlined"
                 type={"number"}
                 value={value}
-                sx={{width: 100}}
+                sx={{
+                    width: {
+                        lg: 100,
+                        md: 60,
+                    },
+                }}
                 onChange={(e) => {
                     setValue(Math.max(0, Number(e.target.value)));
                 }}
