@@ -16,7 +16,12 @@ const SubjectInput = ({setName, credit, setCredit, grades, setGrade}: SubjectInp
             <TextField
                 label="Name"
                 variant="outlined"
-                sx={{width: 250}}
+                sx={{
+                    width: {
+                        lg: 250,
+                        md: 190,
+                    }
+            }}
                 onChange={(e) => {
                     setName(e.target.value);
                 }}
@@ -26,7 +31,12 @@ const SubjectInput = ({setName, credit, setCredit, grades, setGrade}: SubjectInp
                 variant="outlined"
                 value={credit}
                 type={"number"}
-                sx={{width: 70}}
+                sx={{
+                    width:{
+                        lg: 70,
+                        md: 60,
+                    }
+            }}
                 inputProps={{min: "0"}}
                 onChange={(e) => {
                     setCredit(Math.max(0, Number(e.target.value)));
